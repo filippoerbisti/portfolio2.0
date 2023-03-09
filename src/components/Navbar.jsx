@@ -8,6 +8,8 @@ import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 
+import pdfUrl from '../ERBISTI_FILIPPO_CV_ITA.pdf';
+
 const logo = 'https://res.cloudinary.com/dl38nyo08/image/upload/v1672330082/portfolio/log_n48s8x.png';
 
 const Navbar = () => {
@@ -54,7 +56,7 @@ const Navbar = () => {
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className='list-none hidden sm:flex flex-row items-center gap-10'>
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -66,6 +68,19 @@ const Navbar = () => {
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
+          <li>
+            <a aria-label="dione">
+              <div
+                onClick={() => {
+                  setNav(!nav)
+                  window.open(pdfUrl);
+                }}
+                className='rounded-full text-secondary shadow shadow-white-100 p-3 cursor-pointer md:hover:text-white ease-in duration-300'
+              >
+                <BsFillPersonLinesFill />
+              </div>
+            </a>
+          </li>
         </ul>
 
         {/* <div className='sm:hidden flex flex-1 justify-end items-center'>
@@ -210,14 +225,17 @@ const Navbar = () => {
                         <AiOutlineMail />
                       </div>
                     </a>
-                    <Link href='/resume'>
+                    <a>
                       <div
-                        onClick={() => setNav(!nav)}
+                        onClick={() => {
+                          setNav(!nav)
+                          window.open(pdfUrl);
+                        }}
                         className='rounded-full shadow shadow-white-100 p-3 cursor-pointer md:hover:scale-105 ease-in duration-300'
                       >
                         <BsFillPersonLinesFill />
                       </div>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
